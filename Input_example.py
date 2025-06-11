@@ -3,7 +3,7 @@
 
 # Beginning code before example
 # Gather input
-#     poundsstr = input("What is your weight in pounds: ")
+#     poundsstr = input("What is your weight in pounds:  ")
 # Convert input string -> float
 #     poundsflt = float(poundsstr)
 # Print and convert to kilos
@@ -19,15 +19,16 @@ def get_positive_float_input():
     # if the weight is not a number, then reprompt the user until the input is correct
     while True:
         try: 
-            user_weight = float(input("What is your weight in pounds: "))
+            number = float(input("What is your weight in pounds: "))
             # Make sure that the number is positiver
-            if (user_weight <= 0): 
+            if (number <= 0): 
                 print("Please give a positive number")
+                continue
             else:
                 break
         except:
             print("ERROR: Please enter just a numerical value")
-    return user_weight
+    return number
 
 def convert_lbs_to_kg(lbs):
     # PROCESSING
@@ -35,16 +36,13 @@ def convert_lbs_to_kg(lbs):
     LBS_TO_KG_CONVERSION = 2.205
     kg = lbs/2.205
     return kg
-
-def output_nicely(output):
-    # OUTPUT
-    # Print the output to the user in a nice format (to two decimals)
-    print(f"You weigh {output:.2f} kg.")
-
+    
 def main():
     user_weight = get_positive_float_input()
     user_weight_in_kg = convert_lbs_to_kg(user_weight)
-    output_nicely(user_weight_in_kg)
+    # OUTPUT
+    # Print the output to the user in a nice format (to two decimals)
+    print(f"You weigh {user_weight:.2f} kg.")
     
 # Call the main function
 main()
