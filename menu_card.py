@@ -28,6 +28,15 @@ def display_cart(cart:dict, menu_items:dict) -> None:
         
         print(f"{quantity} {item}(s) @ ${menu_items[item]:.2f} each: ${(menu_items[item] * quantity):.2f}")
 
+def print_receipt(cart: dict, menu_items:dict, total: float) -> None:
+    # with block makes it so that the file automatically closes
+    # write causes the file to be completely rewritten and the previous stuff is deleted
+    # append adds stuff onto the previously written stuff in the file
+    with open("reciept.txt", "w") as receipt_file:
+        for item, quantity in cart.items():
+            receipt_file.write(f"{quantity} {item}(s) @ ${menu_items[item]:.2f} each: ${(menu_items[item] * quantity):.2f}\n")
+        receipt_file.write(f"Total: ${total:.2f}")
+
 def main():
     menu_items = get_file_dictionary("file.txt")
     total_cost = 0
@@ -72,7 +81,7 @@ def main():
 
     # Print out card
     display_cart(item_cart, menu_items)
-    print(f"Total: ${total_cost}")
-
+    print(f"Total: ${total_cost:.2f}")
+    print_receipt(item_cart, menu_items, total_cost)
 
 main()
