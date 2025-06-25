@@ -133,7 +133,5 @@ def get_student_dictionaries():
     # Get a list of dictionaries
     student_dictionaries = student_to_dictionary(student_list)
 
-    print(student_dictionaries)
     return student_dictionaries
 
-get_student_dictionaries()
