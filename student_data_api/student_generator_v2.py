@@ -59,9 +59,6 @@ def convert_line_to_student(line_of_data:str):
     if not(0 <= list_of_data[4] <= 4):
         return "GPA out of bounds on line"
     
-    # Get rid of new line character
-    list_of_data[5] = int(list_of_data[5])
-    
     # Convert list_of_data into a Student object
     student = Student(list_of_data[0], list_of_data[1], list_of_data[2], list_of_data[3], list_of_data[4], list_of_data[5])
     return student
