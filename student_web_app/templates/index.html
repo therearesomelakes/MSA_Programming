@@ -2,5 +2,15 @@
 
 {% block content %}
     <h1>{% block title %} Sudent Data {% endblock %}</h1>
-
+    {% for student in student_data %}
+        <div class="post">
+            <h2> {{ student['first_name'] }}  {{student['last_name']}}</h2>
+            <ul>
+                <li>Major: {{student['major']}}</li>
+                <li>Class: {{student['class']}}</li>
+                <li>GPA: {{student['gpa']}}</li>
+                <li>ID: {{student['id']}}</li>
+            </ul>
+        </div>
+    {% endfor %}
 {% endblock %}
